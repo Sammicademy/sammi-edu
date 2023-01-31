@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Heading, Tag, Text } from '../components';
+import { Button, Heading, Input, Tag, Text, TextArea } from '../components';
 
 const Index = () => {
 	const [isClick, setIsClick] = useState(false);
@@ -23,6 +23,13 @@ const Index = () => {
 			<Button appearance='primary' arrow='down'>
 				Down
 			</Button>
+
+			<br />
+
+			<Input placeholder='Enter' />
+			<div>
+				<TextArea placeholder='Message' />
+			</div>
 		</div>
 	);
 };
