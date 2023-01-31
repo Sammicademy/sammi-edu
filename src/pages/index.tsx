@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Heading, Input, Rating, Tag, Text, TextArea } from '../components';
+import { Button, Card, Heading, Input, Rating, Tag, Text, TextArea } from '../components';
 
 const Index = () => {
 	const [isClick, setIsClick] = useState(false);
@@ -35,6 +35,16 @@ const Index = () => {
 			<br />
 
 			<Rating rating={rating} isEditabled={true} setRating={setRating} />
+
+			<Card color='white' style={{ marginTop: '30px' }}>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sunt delectus ipsum accusantium. Quaerat necessitatibus
+				laborum cum quis veniam. Eveniet?
+			</Card>
+
+			<Card color='primary' style={{ marginTop: '30px' }}>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sunt delectus ipsum accusantium. Quaerat necessitatibus
+				laborum cum quis veniam. Eveniet?
+			</Card>
 		</div>
 	);
 };
