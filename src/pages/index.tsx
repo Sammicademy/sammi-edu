@@ -1,6 +1,9 @@
-import { Heading, Tag, Text } from '../components';
+import { useState } from 'react';
+import { Button, Heading, Tag, Text } from '../components';
 
 const Index = () => {
+	const [isClick, setIsClick] = useState(false);
+
 	return (
 		<div>
 			<Heading tag='h2'>Heading</Heading>
@@ -11,6 +14,15 @@ const Index = () => {
 			<Tag size='m' color='green'>
 				Green
 			</Tag>
+			<br />
+			<Button appearance='primary'>Primary</Button>
+			<Button appearance='ghost'>Ghost</Button>
+			<Button appearance='ghost' arrow={isClick ? 'down' : 'right'} onClick={() => setIsClick(prev => !prev)}>
+				Arrow
+			</Button>
+			<Button appearance='primary' arrow='down'>
+				Down
+			</Button>
 		</div>
 	);
 };
