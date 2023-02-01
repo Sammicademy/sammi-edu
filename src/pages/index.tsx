@@ -5,11 +5,9 @@ import axios from 'axios';
 import { withLayout } from '../layout/layout';
 import { MenuItem } from '../interfaces/menu.interface';
 
-const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
+const Index = (): JSX.Element => {
 	const [isClick, setIsClick] = useState(false);
 	const [rating, setRating] = useState<number>(4);
-
-	console.log(menu);
 
 	return (
 		<>
@@ -51,11 +49,6 @@ const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sunt delectus ipsum accusantium. Quaerat necessitatibus
 				laborum cum quis veniam. Eveniet?
 			</Card>
-			<ul>
-				{menu.map(c => (
-					<li key={c._id.secondCategory}>{c._id.secondCategory}</li>
-				))}
-			</ul>
 		</>
 	);
 };
