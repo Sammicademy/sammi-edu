@@ -24,4 +24,5 @@ export interface PageModel {
 	description: string;
 	hh: HhData;
 	advantages: AdvatnageData[];
+	category: string;
 }
