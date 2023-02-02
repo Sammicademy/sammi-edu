@@ -27,7 +27,7 @@
 	grid-area: footer;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 	.wrapper {
 		grid-template-columns: minmax(320px, 1fr);
 		grid-template-areas: 'header' 'body' 'footer';
