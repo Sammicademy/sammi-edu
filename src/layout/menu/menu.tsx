@@ -5,7 +5,6 @@ import { firstLevelMenu } from '../../helpers/constants';
 import styles from './menu.module.css';
 import cn from 'classnames';
 import { IFirstLevelMenu, PageItem } from '../../interfaces/menu.interface';
-import { PageModel } from '../../interfaces/page.interface';
 import { useRouter } from 'next/router';
 
 const Menu = (): JSX.Element => {
@@ -80,9 +79,9 @@ const Menu = (): JSX.Element => {
 		return pages.map(p => (
 			<Link
 				key={p._id}
-				href={`/${rotue}/${p.alias}`}
+				href={`/${rotue}/${p._id}`}
 				className={cn(styles.thirdLevel, {
-					[styles.thirdLevelActive]: `/${rotue}/${p.alias}` === router.asPath,
+					[styles.thirdLevelActive]: `/${rotue}/${p._id}` === router.asPath,
 				})}
 			>
 				{p.title}
