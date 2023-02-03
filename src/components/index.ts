@@ -11,3 +11,4 @@ export { default as HhData } from './hh-data/hh-data';
 export { default as Advantages } from './advatnages/advantages';
 export { default as Product } from './product/product';
 export { default as ReviewForm } from './reivew-form/reivew-form';
+export { default as Search } from './saerch/saerch';
