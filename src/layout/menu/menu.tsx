@@ -6,10 +6,35 @@ import styles from './menu.module.css';
 import cn from 'classnames';
 import { IFirstLevelMenu, PageItem } from '../../interfaces/menu.interface';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 const Menu = (): JSX.Element => {
 	const { menu, firstCategory, setMenu } = useContext(AppContext);
 	const router = useRouter();
+
+	const variants = {
+		visible: {
+			marginBottom: 20,
+			transition: {
+				when: 'beforeChildren',
+				staggerChildren: 0.1,
+			},
+		},
+		hidden: {
+			marginBottom: 0,
+		},
+	};
+
+	const variantsChildren = {
+		visible: {
+			opacity: 1,
+			height: 30,
+		},
+		hidden: {
+			opacity: 0,
+			height: 0,
+		},
+	};
 
 	const openSecondBLock = (category: string) => {
 		setMenu &&
@@ -61,13 +86,15 @@ const Menu = (): JSX.Element => {
 							<div className={styles.secondLevel} onClick={() => openSecondBLock(q._id.secondCategory)}>
 								{q._id.secondCategory}
 							</div>
-							<div
-								className={cn(styles.secondLevelBlock, {
-									[styles.secondLevelBlockActive]: q.isOpened,
-								})}
+							<motion.div
+								variants={variants}
+								layout
+								initial={q.isOpened ? 'visible' : 'hidden'}
+								animate={q.isOpened ? 'visible' : 'hidden'}
+								className={cn(styles.secondLevelBlock)}
 							>
 								{buildThirdLevel(q.pages, menuItem.route)}
-							</div>
+							</motion.div>
 						</div>
 					);
 				})}
@@ -77,15 +104,16 @@ const Menu = (): JSX.Element => {
 
 	const buildThirdLevel = (pages: PageItem[], rotue: string) => {
 		return pages.map(p => (
-			<Link
-				key={p._id}
-				href={`/${rotue}/${p._id}`}
-				className={cn(styles.thirdLevel, {
-					[styles.thirdLevelActive]: `/${rotue}/${p._id}` === router.asPath,
-				})}
-			>
-				{p.title}
-			</Link>
+			<motion.div key={p._id} variants={variantsChildren}>
+				<Link
+					href={`/${rotue}/${p._id}`}
+					className={cn(styles.thirdLevel, {
+						[styles.thirdLevelActive]: `/${rotue}/${p._id}` === router.asPath,
+					})}
+				>
+					{p.title}
+				</Link>
+			</motion.div>
 		));
 	};
 
