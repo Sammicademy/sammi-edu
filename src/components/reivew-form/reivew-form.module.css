@@ -28,6 +28,36 @@
 	margin-left: 15px;
 }
 
+.panel {
+	padding: 20px;
+	position: relative;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+.success {
+	background-color: var(--green-light);
+}
+
+.error {
+	background-color: var(--red-light);
+}
+
+.error .close path {
+	stroke: var(--red);
+}
+
+.successTitle {
+	font-weight: bold;
+}
+
+.close {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+}
+
 @media screen and (max-width: 740px) {
 	.reviewForm {
 		grid-template-columns: [start] 1fr 1fr [end];
