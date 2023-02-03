@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: [start] auto 1fr auto auto [end];
 	align-items: center;
-	gap: 10px;
+	gap: 30px 30px;
 	font-size: 14px;
 	line-height: 24px;
 }

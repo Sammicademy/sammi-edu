@@ -14,7 +14,8 @@
     "date-fns": "^2.29.3",
     "next": "13.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
