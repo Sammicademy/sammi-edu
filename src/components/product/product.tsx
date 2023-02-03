@@ -2,18 +2,24 @@ import { ProductProps } from './product.props';
 import styles from './product.module.css';
 import Card from '../card/card';
 import Image from 'next/image';
-import { convertToUSD } from '../../helpers/helpers';
+import { convertToUSD, dedectedReview } from '../../helpers/helpers';
 import Rating from '../rating/rating';
 import Tag from '../tag/tag';
 import Divider from '../divider/divider';
 import Button from '../button/button';
 import cn from 'classnames';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Review from '../review/review';
 import ReivewForm from '../reivew-form/reivew-form';
 
 const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
 	const [reviewOpen, setReviewOpen] = useState<boolean>(false);
+	const reviewRef = useRef<HTMLDivElement>(null);
+
+	const scrollToReview = () => {
+		setReviewOpen(true);
+		reviewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	};
 
 	return (
 		<div className={className} {...props}>
@@ -46,7 +52,11 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
 				</div>
 				<div className={styles.priceTitle}>Price</div>
 				<div className={styles.creditTitle}>Credit</div>
-				<div className={styles.rateTitle}>{product.reviewCount} reviews</div>
+				<div className={styles.rateTitle}>
+					<a href='#review' onClick={scrollToReview}>
+						{product.reviewCount} {dedectedReview(product.reviewCount)}
+					</a>
+				</div>
 
 				<Divider className={styles.hr} />
 
@@ -92,8 +102,10 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
 					</Button>
 				</div>
 			</Card>
+
 			<Card
 				color='white'
+				ref={reviewRef}
 				className={cn(styles.review, {
 					[styles.opened]: reviewOpen,
 					[styles.closed]: !reviewOpen,

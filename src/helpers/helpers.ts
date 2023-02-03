@@ -4,3 +4,7 @@ export const convertToUSD = (price: number): string => {
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 		.concat(' $');
 };
+
+export const dedectedReview = (number: number): string => {
+	return number > 1 ? 'Reviews' : 'Review';
+};
