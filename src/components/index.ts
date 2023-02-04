@@ -13,3 +13,4 @@ export { default as Product } from './product/product';
 export { default as ReviewForm } from './reivew-form/reivew-form';
 export { default as Search } from './saerch/saerch';
 export { default as Sort } from './sort/sort';
+export { default as ScrollUp } from './scroll-up/scroll-up';
