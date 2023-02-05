@@ -9,6 +9,7 @@ const Advantages = ({ advantages }: AdvantagesProps): JSX.Element => {
 			{advantages.map(c => (
 				<div key={c.id} className={styles.advantage}>
 					<CheckIcon />
+
 					<div className={styles.title}>{c.title}</div>
 					<Divider className={styles.vline} />
 					<div className={styles.description}>{c.description}</div>

@@ -11,6 +11,14 @@
 	transition: all 0.2s ease;
 }
 
+.s {
+	padding: 8px;
+}
+
+.l {
+	padding: 12px;
+}
+
 .primary {
 	color: var(--white);
 	background-color: var(--primary);
@@ -31,6 +39,25 @@
 	background-color: var(--primary);
 }
 
+.success {
+	color: var(--white);
+	background-color: var(--green);
+}
+
+.success:hover {
+	background-color: var(--green-light);
+	color: var(--green);
+}
+
+.failure {
+	color: var(--black);
+	background-color: var(--red);
+}
+
+.failure:hover {
+	background-color: var(--red-light);
+}
+
 .arrow {
 	display: inline-block;
 	margin-left: 10px;
@@ -39,6 +66,14 @@
 .down {
 	transform: rotate(90deg);
 	transition: all 0.2s ease;
+}
+
+.success svg {
+	fill: var(--white);
+}
+
+.success:hover svg {
+	fill: var(--green);
 }
 
 .primary svg,

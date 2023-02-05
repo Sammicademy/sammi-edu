@@ -9,6 +9,8 @@ import { IReviewForm, IReviewResponse } from './review-form.interface';
 import axios from 'axios';
 import { useState } from 'react';
 import CloseIcon from './close.svg';
+import Success from './success';
+import Error from './error';
 
 const ReivewForm = ({ productid, className, ...props }: ReviewFormProps): JSX.Element => {
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -77,20 +79,9 @@ const ReivewForm = ({ productid, className, ...props }: ReviewFormProps): JSX.El
 				</div>
 			</div>
 
-			{isSuccess && (
-				<div className={cn(styles.success, styles.panel)}>
-					<div className={styles.successTitle}>Review sent successfully</div>
-					<div>Thanks your review will published after testing</div>
-					<CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
-				</div>
-			)}
+			{isSuccess && <Success setIsSuccess={setIsSuccess} />}
 
-			{error && (
-				<div className={cn(styles.error, styles.panel)}>
-					<div className={styles.successTitle}>Something wen wrong</div>
-					<CloseIcon className={styles.close} onClick={() => setError(false)} />
-				</div>
-			)}
+			{error && <Error setError={setError} />}
 		</form>
 	);
 };
