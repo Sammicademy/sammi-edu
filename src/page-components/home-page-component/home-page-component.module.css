@@ -60,6 +60,11 @@
 		grid-template-columns: 100%;
 		align-items: self-start;
 	}
+	.heroTitle h1 {
+		font-size: 40px;
+		margin-top: 40px;
+		line-height: 50px;
+	}
 	.heroImage {
 		display: none;
 	}

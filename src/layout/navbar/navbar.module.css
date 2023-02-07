@@ -62,6 +62,7 @@
 		border-top: 1px solid rgba(0, 0, 0, 0.02);
 	}
 	.mobileMenu a {
+		color: var(--white);
 		display: block;
 		margin-top: 10px;
 	}
