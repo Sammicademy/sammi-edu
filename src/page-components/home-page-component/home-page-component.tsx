@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { Fragment } from 'react';
 import { Button, Card, Heading, ScrollUp, Text } from '../../components';
 import { company, timeLineList } from '../../helpers/constants';
-import Footer from '../../layout/header/footer/footer';
 import Navbar from '../../layout/navbar/navbar';
 import styles from './home-page-component.module.css';
 import { Timeline, TimelineEvent } from 'react-event-timeline';
+import Footer from '../../layout/footer/footer';
 
 const HomePageComponent = () => {
 	return (

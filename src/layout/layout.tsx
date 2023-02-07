@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react';
-import Footer from './header/footer/footer';
 import Header from './header/header';
 import { LayoutProps } from './layout.props';
 import Sidebar from './sidebar/sidebar';
@@ -7,6 +6,8 @@ import styles from './layout.module.css';
 import { AppContextProvider, IAppContext } from '../context/app.cotext';
 import { ScrollUp } from '../components';
 import { useRouter } from 'next/router';
+import Footer from './footer/footer';
+import Seo from './seo/seo';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
 	return (
@@ -23,7 +24,6 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
 	return function withLayoutComponent(props: T): JSX.Element {
 		const router = useRouter();
-		console.log(router);
 
 		return (
 			<AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>

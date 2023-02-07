@@ -2,10 +2,15 @@ import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import { MenuItem } from '../interfaces/menu.interface';
 import { withLayout } from '../layout/layout';
+import Seo from '../layout/seo/seo';
 import { HomePageComponent } from '../page-components';
 
 const Index = (): JSX.Element => {
-	return <HomePageComponent />;
+	return (
+		<Seo>
+			<HomePageComponent />
+		</Seo>
+	);
 };
 
 export default withLayout(Index);
