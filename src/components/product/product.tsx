@@ -10,7 +10,7 @@ import Button from '../button/button';
 import cn from 'classnames';
 import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import Review from '../review/review';
-import ReivewForm from '../reivew-form/reivew-form';
+import ReivewForm from '../review-form/reivew-form';
 import { motion } from 'framer-motion';
 
 const Product = motion(

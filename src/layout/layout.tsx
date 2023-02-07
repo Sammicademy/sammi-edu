@@ -6,6 +6,7 @@ import Sidebar from './sidebar/sidebar';
 import styles from './layout.module.css';
 import { AppContextProvider, IAppContext } from '../context/app.cotext';
 import { ScrollUp } from '../components';
+import { useRouter } from 'next/router';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
 	return (
@@ -21,11 +22,18 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
 	return function withLayoutComponent(props: T): JSX.Element {
+		const router = useRouter();
+		console.log(router);
+
 		return (
 			<AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
-				<Layout>
+				{router.asPath === '/' ? (
 					<Component {...props} />
-				</Layout>
+				) : (
+					<Layout>
+						<Component {...props} />
+					</Layout>
+				)}
 			</AppContextProvider>
 		);
 	};
