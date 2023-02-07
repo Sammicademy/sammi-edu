@@ -20,6 +20,11 @@ ul {
 	list-style: none;
 }
 
+#nprogress .bar {
+	background-color: black !important;
+	height: 10px;
+}
+
 :root {
 	--font-family: 'Roboto', sans-serif;
 	--black: #3b434e;
