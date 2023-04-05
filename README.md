@@ -23,6 +23,3 @@ https://sammi-education.vercel.app
 - Project architecture
 - UI Components
 - High Order Component
-#� �e�d�u�z�o�n�e�
-�
-�
